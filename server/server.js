@@ -2,6 +2,7 @@ require('./config/config');
 
 const express = require('express');
 const mongoose = require('mongoose');
+
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -12,6 +13,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Parse application/json
 app.use(bodyParser.json());
+
+// Carpeta public
+app.use( express.static( 'public' ) );
 
 // Endpoints
 app.use( require('./routes/index') );
